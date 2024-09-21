@@ -19,7 +19,7 @@ class Question:
 def quizQuestion(prompt, ans1, ans2, ans3, ans4, ans5):
     timeCounter(0.15, prompt)
     options = f"{ans1}\n{ans2}\n{ans3}\n{ans4}\n{ans5}"
-    timeCounter(0.1, options)
+    print(options)
     timeCounter(0.1, 'Please write the number: ')
     while True:
         try:
