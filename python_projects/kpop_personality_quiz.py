@@ -60,7 +60,7 @@ Question("Who is your favorite member of LOOSSEMBLE?", ["1. Gowon", "2. Vivi", "
 Question("What is your favorite flower?", ["1. Lobelia", "2. Forget-me-not", "3. Plum blossom", "4. Gerbera", "5. Daisy"]),
 ]
 
-##for loop to iterate over the questions array. display multiple-choice options after the question and before fetching the user's input.
+##for loop to iterate over the questions. display multiple-choice options after the question and before fetching the user's input.
 for question in questions:
     counter += quizQuestion(question.questionText,
 *question.multipleChoiceOptions)
