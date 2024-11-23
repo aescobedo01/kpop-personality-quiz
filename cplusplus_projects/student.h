@@ -9,7 +9,7 @@ using namespace std;
 class Student{
 
 //maybe make the variables priv?
-private:
+public:
     string studentId;
     string lastName;
     string firstName;
@@ -18,21 +18,21 @@ private:
     int daysCourse[3];
     string degreeProgram;
 
-
-public:
 //default student constructor
     Student();
 //student constructor
-    Student(string studentid, string firstname, string lastname, string email, int age, int day1, int day2, int day3, string degree) {
+    Student(string studentid, string firstname, string lastname, string email, int age, int days[], string degree) {
         setStudentId(studentId);
         setFName(firstName);
         setLName(lastName);
         setEmail(emailAddress);
         setAge(yearsOld);
         setDays(daysCourse[3]);
+        for (int i = 0; i <=3; ++i){
+        this->daysCourse[i] = days[i];
+        //setDays(daysCourse[i]) = days[i];
+    }
         setDegree(degreeProgram);
-        //maybe add the array in here?
-        //numDaysArray = myarray;
     }
 //accessors or getters
     string getId() const {

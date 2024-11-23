@@ -10,7 +10,7 @@ using namespace std;
 int main() {
 
 //instance of roster class
-Roster* classRoster = new Roster();
+Roster* classRosterArray;
 
 const std::string studentData[] = {
 "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY", 
@@ -21,6 +21,5 @@ const std::string studentData[] = {
 };
 
 system("pause>0");
-
 return 0;
 }
