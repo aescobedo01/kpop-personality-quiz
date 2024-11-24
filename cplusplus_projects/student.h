@@ -1,14 +1,13 @@
 #include <iostream>
 #include <string>
 #include "degree.h"
+#include "roster.h"
 #ifndef STUDENT_H
 #define STUDENT_H
 
 using namespace std;
-
+//student class in h file
 class Student{
-
-//maybe make the variables priv?
 public:
     string studentId;
     string lastName;
@@ -18,22 +17,6 @@ public:
     int daysCourse[3];
     string degreeProgram;
 
-//default student constructor
-    Student();
-//student constructor
-    Student(string studentid, string firstname, string lastname, string email, int age, int days[], string degree) {
-        setStudentId(studentId);
-        setFName(firstName);
-        setLName(lastName);
-        setEmail(emailAddress);
-        setAge(yearsOld);
-        setDays(daysCourse[3]);
-        for (int i = 0; i <=3; ++i){
-        this->daysCourse[i] = days[i];
-        //setDays(daysCourse[i]) = days[i];
-    }
-        setDegree(degreeProgram);
-    }
 //accessors or getters
     string getId() const {
         return studentId;
@@ -93,4 +76,4 @@ void print() const;
 
 };
 
-#endif //for studenth
+#endif 

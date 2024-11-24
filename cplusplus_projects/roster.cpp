@@ -3,12 +3,15 @@
 #include "roster.h"
 #include "student.h"
 #include "degree.h"
+#ifndef ROSTER_H
+#define ROSTER_H
 
 using namespace std;
 
-class Roster{
-public:
-Roster() {
+Roster::Roster() {
+//initialization
+Student students[5];
+Student* classRosterArray[5];
 
 //array of student objects
 Student students[5] = {
@@ -19,14 +22,9 @@ Student students[5] = {
     {"A5","Ana","Escobedo","myemailaddress@gmail.com",23,{20,21,22},"SOFTWARE"}
 };
 
-//initialize array
-Student* classRosterArray[5];
-
 //populate array w array of student objects
-int classRosterArray = 0;
 for (int i = 0; i <= 5; i++){
 classRosterArray[i] = &students[i];
-//cin >> classRosterArray[i];
 }
 
 //print vals w pointers
@@ -40,8 +38,14 @@ for (int i = 0; i <= 5; i++){
     cout << classRosterArray[i]->getDays()[2] << endl;
     cout << classRosterArray[i]->getDegree() << endl;
 }
+}
+
+
+int main() {
+Roster myRoster;
 system("pause>0");
 return 0;
 }
-};
+
+#endif
 
