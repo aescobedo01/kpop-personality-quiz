@@ -1,79 +1,50 @@
 #include <iostream>
 #include <string>
 #include "degree.h"
-#include "roster.h"
 #ifndef STUDENT_H
 #define STUDENT_H
 
 using namespace std;
 //student class in h file
 class Student{
-public:
+    
+protected:
     string studentId;
     string lastName;
     string firstName;
     string emailAddress;
     int yearsOld;
     int daysCourse[3];
-    string degreeProgram;
+    Degree degreeProgram;
+public: 
 
-//accessors or getters
-    string getId() const {
-        return studentId;
-    }
+//default student constructor
+    Student();
 
-    string getFName() const {
-        return firstName;
-    }
-    
-    string getLName() const {
-        return lastName;
-    }
+//student constructor
+    Student(string studentid, string firstname, string lastname, string email, int age, int days[], Degree degree);
 
-    string getEmail() const {
-        return emailAddress;
-    }
+//declare setters
+void setId(string& studentID);
+void setFName(string& firstName);
+void setLName(string& lastName);
+void setEmail(string& emailAddress);
+void setAge(int& yearsOld);
+void setDays(int& daysCourse);
+void setDegree(Degree degreeProgram);
 
-    int getAge() const {
-        return yearsOld;
-    }
-
-    int* getDays() {
-        return daysCourse;
-    }
-
-    string getDegree() const {
-        return degreeProgram;
-    }
-
-    //mutators or setters
-    void setStudentId(const string& studentId){
-        this->studentId = studentId;
-    }
-    void setFName(const string& firstName){
-        this->firstName = firstName;
-    }
-
-    void setLName(const string& lastName){
-        this->lastName = lastName;
-    }
-    void setEmail(const string& emailAddress){
-        this->emailAddress = emailAddress;
-    }
-    void setAge(const int& yearsOld){
-        this->yearsOld = yearsOld;
-    }
-     void setDays(int& daysCourse){
-        *this->daysCourse = daysCourse;
-    }
-    void setDegree(const string& degreeProgram){
-        this->degreeProgram = degreeProgram;
-    }
-
+//dec getters
+string getId();
+string getFName();
+string getLName();
+string getEmail();
+int getAge();
+int* getDays();
+virtual Degree getDegree() const; //= 0;
 
 //print
-void print() const;
-
+virtual void print() const;
+    
 };
 
 #endif 
