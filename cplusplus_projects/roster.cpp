@@ -29,13 +29,13 @@ classRosterArray[i] = &students[i];
 
 //print vals w pointers
 for (int i = 0; i <= 5; i++){
-    cout << classRosterArray[i]->getId() << endl;
-    cout << classRosterArray[i]->getFName() << endl;
-    cout << classRosterArray[i]->getLName() << endl;
-    cout << classRosterArray[i]->getEmail() << endl;
-    cout << classRosterArray[i]->getDays()[0] << endl;
-    cout << classRosterArray[i]->getDays()[1] << endl;
-    cout << classRosterArray[i]->getDays()[2] << endl;
+    cout << classRosterArray[i]->getId() << ", ";
+    cout << classRosterArray[i]->getFName() << ", ";
+    cout << classRosterArray[i]->getLName() << ", ";
+    cout << classRosterArray[i]->getEmail() << ", ";
+    cout << classRosterArray[i]->getDays()[0] << ", ";
+    cout << classRosterArray[i]->getDays()[1] << ", ";
+    cout << classRosterArray[i]->getDays()[2] << ", ";
     cout << classRosterArray[i]->getDegree() << endl;
 }
 }
