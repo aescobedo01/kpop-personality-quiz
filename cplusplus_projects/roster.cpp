@@ -132,7 +132,7 @@ void Roster::parse(string studentData)
     classRosterArray[numStudents] = new Student(studentId, firstName, lastName, emailAddress, yearsOld, daysCourse, degreeProgram);
     };
 
-    
+    ////left off here
 
 int main() {
 Roster myRoster;
