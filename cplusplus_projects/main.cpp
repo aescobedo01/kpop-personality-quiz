@@ -8,6 +8,7 @@
 using namespace std;
 
 int main() {
+
 // Print out to the screen, via your application, the course title, 
 //the programming language used, your WGU student ID, and your name.
 cout << "C867: Scripting & Programming - Applications" << endl;
@@ -30,6 +31,7 @@ for (int i = 0; i < 5; i++) {
 }
 classRoster->printAll();
 classRoster->printInvalidEmails();
+
 //loop through classRosterArray and for each element:
 for (int i = 0; i < 5; i++){
 classRoster->printAverageDaysInCourse(classRoster->GetId(i));
