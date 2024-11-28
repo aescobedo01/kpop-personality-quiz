@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "degree.h"
+#include "roster.h"
 #ifndef STUDENT_H
 #define STUDENT_H
 
@@ -23,6 +24,9 @@ public:
 
 //student constructor
     Student(string studentid, string firstname, string lastname, string email, int age, int days[], Degree degree);
+
+//destructor
+Student::~Student();
 
 //declare setters
 void setId(string& studentID);

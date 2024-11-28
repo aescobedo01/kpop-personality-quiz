@@ -15,7 +15,7 @@ Student::Student() {
     Student();
 
 //student constructor
-    Student(string studentid, string firstname, string lastname, string email, int age, int daysCourse[], Degree degree) {
+    Student::Student(string studentid, string firstname, string lastname, string email, int age, int daysCourse[], Degree degree) {
         setStudentId(studentId);
         setFName(firstName);
         setLName(lastName);
@@ -82,7 +82,7 @@ Student::Student() {
 
     virtual Degree getDegree() const; //= 0;
 
-//print eveyhing
+//print everything
 void Student::print() {
     string myDegree;
     if (degreeProgram == Security) {
@@ -111,7 +111,7 @@ void Student::print() {
 
 
 //destructor
-~Student();
+Student::~Student();
 };
 
-#endif 
+#endif
