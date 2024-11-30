@@ -25,7 +25,8 @@ const std::string studentData[] = {
 };
 
 Roster* classRoster = new Roster(5);
-
+//rep is classroster and bookdata is studentdata
+//repository is roster
 for (int i = 0; i < 5; i++) {
     classRoster->parse(studentData[i]);
 }
@@ -36,6 +37,8 @@ classRoster->printInvalidEmails();
 for (int i = 0; i < 5; i++){
 classRoster->printAverageDaysInCourse(classRoster->GetId(i));
 }
+classRoster->printByDegreeProgram(Security);
+classRoster->printByDegreeProgram(Network);
 classRoster->printByDegreeProgram(Software);
 classRoster->remove("A3");
 classRoster->printAll();

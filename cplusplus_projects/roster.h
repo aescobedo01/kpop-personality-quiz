@@ -25,7 +25,7 @@ void printAverageDaysInCourse(string studentId);
 void printInvalidEmails();
 void printByDegreeProgram(Degree degreeProgram);
 int numStudents;
-int ind;
+int lastIndex;
 
 Roster::~Roster();
 };

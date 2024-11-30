@@ -22,8 +22,8 @@ Student::Student() {
         setEmail(emailAddress);
         setAge(yearsOld);
         setDays(daysCourse[3]);
-        for (int i = 0; i <=3; ++i){
-        this->daysCourse[i] = days[i];
+        for (int i = 0; i <= 3; ++i){
+        this->daysCourse[i] = daysCourse[i];
     }
         setDegree(degreeProgram);
     }
@@ -112,6 +112,6 @@ void Student::print() {
 
 //destructor
 Student::~Student();
-};
+}
 
 #endif
