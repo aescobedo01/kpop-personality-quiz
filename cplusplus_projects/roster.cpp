@@ -125,15 +125,71 @@ void Roster::parse(string studentData)
     return;
     }
 
-    void Roster::add(string studentId, string firstName, string lastName, string emailAddress, int yearsOld, int daysCourse1, int daysCourse2, int daysCourse3, Degree degreeProgram) {
-        
-    int daysCourse[3] = {daysCourse1, daysCourse2, daysCourse3};
-        
-    classRosterArray[numStudents] = new Student(studentId, firstName, lastName, emailAddress, yearsOld, daysCourse, degreeProgram);
-    };
+//little remove ststament
+bool Roster::remove(string studentId){
+    bool found = false;
+    for (int i = 0; i<= ind; i++){
+        if (this->classRosterArray[i]->getId() == studentId){
+            found = true;
+            delete this->classRosterArray[i];
+            this->classRosterArray[i] = this->classRosterArray[ind];
+            ind--;//roster down one element
+        }
+    }
+    return found;
+}
 
-    ////left off here
+void Roster::printAll() {
+//parse student array and call print method for each one
+for (int i = 0; i<=ind; i++)
+(this->classRosterArray)[i]->print();
+}
 
+void Roster::add(string studentId, string firstName, string lastName, string emailAddress, int yearsOld, int daysCourse1, int daysCourse2, int daysCourse3, Degree degreeProgram) {
+        
+int daysCourse[3] = {daysCourse1, daysCourse2, daysCourse3};
+        
+classRosterArray[numStudents] = new Student(studentId, firstName, lastName, emailAddress, yearsOld, daysCourse, degreeProgram);
+};
+
+//ave days
+void Roster::printAverageDaysInCourse(string studentId) {
+bool found = false;
+for (int i = 0; i <= ind; i++) {
+    if (this-classRosterArray[i]->getId() == studentId) {
+    //student found
+found = true;
+double* daysCourse = classRosterArray[i]->getDays();//p is dayscourse
+cout << "Average days in a course for " << studentId << " is " << (daysCourse[0] + daysCourse[1] + daysCourse[2]) / 3 << endl;
+    }//maybe edit the above line PLEEASSEEEEE LOOK AT THIS NOTE FUTURE SELFFFF
+}
+}
+
+//inv email addresses
+Roster::printInvalidEmails() {
+    cout << "Invalid emails: " << endl;
+    for (int i = 0; i <= ind; i++) {
+        cout << "Student ID: " << classStudentArray[i]->getId() << ": ";
+        bool any = false;
+        double* daysCourse = classStudentArray[i]->getDays();
+        for (int j = 0; j < Student::classStudentArray; j++) {
+            if (daysCourse[j] < 0) {
+                any = true;
+                cout << p[j] << " ";
+            }
+        }
+        if (!any) cout << "None";
+        cout << "\n";
+    }
+}//p dayscourse
+
+Roster::printByDegreeProgram(Degree degreeProgram) {
+    cout << "Degree programs: " << insertFuncHere[degreeprogram] << endl;
+    for (int i = 0; i <= ind; i++) {
+        if (this->ClassRosterArray[i]->getDegree() == degreeProgram) this->classRosterArray[i]->print();
+    }
+}
+// destroyy eveyr booooooookkkkk
 int main() {
 Roster myRoster;
 system("pause>0");

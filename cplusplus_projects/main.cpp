@@ -44,7 +44,6 @@ classRoster->remove("A3");
 //expected: the above line should print a message saying such a student with this ID was not found.
 
 classRoster->~Roster();
-delete classRoster;
 
 system("pause>0");
 return 0;
