@@ -25,11 +25,11 @@ const std::string studentData[] = {
 };
 
 Roster* classRoster = new Roster(5);
-//rep is classroster and bookdata is studentdata
-//repository is roster
+
 for (int i = 0; i < 5; i++) {
     classRoster->parse(studentData[i]);
 }
+
 classRoster->printAll();
 classRoster->printInvalidEmails();
 
@@ -42,11 +42,12 @@ classRoster->printByDegreeProgram(Network);
 classRoster->printByDegreeProgram(Software);
 classRoster->remove("A3");
 classRoster->printAll();
+
 cout << "Student with this ID was not found: " << endl;
 classRoster->remove("A3");
 //expected: the above line should print a message saying such a student with this ID was not found.
 
-classRoster->~Roster();
+delete classRoster;
 
 system("pause>0");
 return 0;

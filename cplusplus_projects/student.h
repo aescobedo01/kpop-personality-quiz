@@ -17,8 +17,8 @@ protected:
     int yearsOld;
     int daysCourse[3];
     Degree degreeProgram;
-public: 
 
+public: 
 //default student constructor
     Student();
 
@@ -26,7 +26,7 @@ public:
     Student(string studentid, string firstname, string lastname, string email, int age, int days[], Degree degree);
 
 //destructor
-Student::~Student();
+    ~Student();
 
 //declare setters
 void setId(string& studentID);
@@ -34,17 +34,17 @@ void setFName(string& firstName);
 void setLName(string& lastName);
 void setEmail(string& emailAddress);
 void setAge(int& yearsOld);
-void setDays(int& daysCourse);
+void setDays(int days[]);
 void setDegree(Degree degreeProgram);
 
 //dec getters
-string getId();
-string getFName();
-string getLName();
-string getEmail();
-int getAge();
-int* getDays();
-virtual Degree getDegree() const; //= 0;
+string getId() const;
+string getFName() const;
+string getLName() const;
+string getEmail() const;
+int getAge()const ;
+int* getDays() const;
+virtual Degree getDegree() const;
 
 //print
 virtual void print() const;

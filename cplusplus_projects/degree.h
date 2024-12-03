@@ -10,4 +10,9 @@ Network,
 Software
 };
 
+Degree getDegree()
+{
+    return Degree();
+}
+
 #endif

@@ -8,110 +8,111 @@
 
 using namespace std;
 
-//constructor goes here.
-
-Student::Student() {
+Student::Student() {}
 //default student constructor
-    Student();
 
 //student constructor
-    Student::Student(string studentid, string firstname, string lastname, string email, int age, int daysCourse[], Degree degree) {
-        setStudentId(studentId);
-        setFName(firstName);
-        setLName(lastName);
-        setEmail(emailAddress);
-        setAge(yearsOld);
-        setDays(daysCourse[3]);
+    Student::Student(string studentid, string firstname, string lastname, string email, int age, int days[], Degree degree) {
+        this->studentId = studentid;
+        this->firstName = firstname;
+        this->lastName = lastname;
+        this->emailAddress = email;
+        this->yearsOld = age;
         for (int i = 0; i <= 3; ++i){
-        this->daysCourse[i] = daysCourse[i];
+        this->daysCourse[i] = days[i];
     }
-        setDegree(degreeProgram);
+        this->degreeProgram = degree;
     }
 
+//destroy
+    Student::~Student() {};
+
     //mutators or setters
-    void setId(const string& studentId){
+    void Student::setId(const string& studentId){
         this->studentId = studentId;
-        return;
     }
-    void setFName(const string& firstName){
+    void Student::setFName(const string& firstName){
         this->firstName = firstName;
     }
 
-    void setLName(const string& lastName){
+    void Student::setLName(const string& lastName){
         this->lastName = lastName;
     }
-    void setEmail(const string& emailAddress){
+    void Student::setEmail(const string& emailAddress){
         this->emailAddress = emailAddress;
     }
-    void setAge(const int& yearsOld){
+    void Student::setAge(const int& yearsOld){
         this->yearsOld = yearsOld;
     }
-     void setDays(int daysCourse1, int daysCourse2, int daysCourse3){
+
+    void Student::setDays(int days[]){
         for (int i = 0; i < 3; i++){
-            *this->daysCourse[0] = daysCourse1;
-            *this->daysCourse[1] = daysCourse1;
-            *this->daysCourse[2] = daysCourse1;
+            *this->daysCourse[i] = days[i];
         }
     }
-    virtual void setDegree(const Degree d); // = 0?
+
+    virtual Student::setDegree(const Degree degreeProgram) {
+        this->degreeProgram = degreeProgram;
+    }
 
 //accessors or getters
-    string getId() const {
+    string Student::getId() const {
         return studentId;
     }
 
-    string getFName() const {
+    string Student::getFName() const {
         return firstName;
     }
     
-    string getLName() const {
+    string Student::getLName() const {
         return lastName;
     }
 
-    string getEmail() const {
+    string Student::getEmail() const {
         return emailAddress;
     }
 
-    int getAge() const {
+    int Student::getAge() const {
         return yearsOld;
     }
 
-    int* getDays() {
+    int* Student::getDays() const {
         return daysCourse;
     }
 
-    virtual Degree getDegree() const; //= 0;
+    virtual Degree Student::getDegree() const {
+        return degreeProgram;
+    }
 
 //print everything
-void Student::print() {
+void Student::print() const {
     string myDegree;
     if (degreeProgram == Security) {
         myDegree = "Security";
+        break;
     }
       else if (degreeProgram == Software) {
         myDegree = "Software";
+        break;
     }
       else if (degreeProgram == Network) {
         myDegree = "Network";
+        break;
     }
     else {
         myDegree = "Error";
     }
 
-    cout << studentId
-    << "First Name: " << getFName()
-    << "Last Name: " << getLName()
-    << "E-mail: " << getEmail()
-    << "Age: " << getAge()
-    << "Days in Course: " << getDays()[0] << ", " << getDays()[1] << ", " << getDays()[2]
-    << "Degree: " << myDegree << endl;
+    cout << "ID: " << getId()
+    << "\tFirst Name: " << getFName()
+    << "\tLast Name: " << getLName()
+    << "\tE-mail: " << getEmail()
+    << "\tAge: " << getAge()
+    << "\tDays in Course: {" << daysCourse[0] << ", " << daysCourse[1] << ", " << daysCourse[2] << "}"
+    << "\tDegree: " << getDegree()
+    << endl;
 
     return;
-}
-
-
-//destructor
-Student::~Student();
 }
 
 #endif
