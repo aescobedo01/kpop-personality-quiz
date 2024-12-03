@@ -18,7 +18,7 @@ Student::Student() {}
         this->lastName = lastname;
         this->emailAddress = email;
         this->yearsOld = age;
-        for (int i = 0; i <= 3; ++i){
+        for (int i = 0; i < 3; ++i){
         this->daysCourse[i] = days[i];
     }
         this->degreeProgram = degree;
@@ -47,7 +47,7 @@ Student::Student() {}
 
     void Student::setDays(int days[]){
         for (int i = 0; i < 3; i++){
-            *this->daysCourse[i] = days[i];
+            this->daysCourse[i] = days[i];
         }
     }
 

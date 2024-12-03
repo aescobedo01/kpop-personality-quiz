@@ -98,7 +98,7 @@ void Roster::parse(string studentData) {
 }
 
 
-//little remove ststament
+//remove ststament
 bool Roster::remove(string studentId){
     for (int i = 0; i <= lastIndex; ++i){
         if (classRosterArray[i]->getId() == studentId){
@@ -114,19 +114,20 @@ bool Roster::remove(string studentId){
 
 
 
+//populate cra w/student obj array
+void Roster::add(string studentId, string firstName, string lastName, string emailAddress, int yearsOld, int daysCourse1, int daysCourse2, int daysCourse3, Degree degreeProgram) {
+int days[] = {daysCourse1, daysCourse2, daysCourse3};
+classRosterArray[++lastIndex] = new Student(studentId, firstName, lastName, emailAddress, yearsOld, days, degreeProgram);
+};
+
+
+
+//print cra vals w/pointers
 void Roster::printAll() {
 //parse student array and call print method for each one
 for (int i = 0; i <= lastIndex; ++i)
 classRosterArray[i]->print();
 }
-
-
-
-
-void Roster::add(string studentId, string firstName, string lastName, string emailAddress, int yearsOld, int daysCourse1, int daysCourse2, int daysCourse3, Degree degreeProgram) {
-int days[] = {daysCourse1, daysCourse2, daysCourse3};
-classRosterArray[++lastIndex] = new Student(studentId, firstName, lastName, emailAddress, yearsOld, days, degreeProgram);
-};
 
 
 
@@ -166,6 +167,7 @@ void Roster::printByDegreeProgram(Degree degreeProgram) {
 }
 
 
+#endif
 
 
 
@@ -173,16 +175,14 @@ void Roster::printByDegreeProgram(Degree degreeProgram) {
 
 
 
-
+/*
 
 
 Roster::Roster()
 {
-    // initialization
     Student students[5];
     Student *classRosterArray[5];
 
-    // array of student objects [NECESSARY]
     Student students[5] = {
         {"A1", "John", "Smith", "John1989@gm ail.com", 20, {30, 35, 40}, "SECURITY"},
         {"A2", "Suzan", "Erickson", "Erickson_1990@gmailcom", 19, {50, 30, 40}, "NETWORK"},
@@ -190,13 +190,12 @@ Roster::Roster()
         {"A4", "Erin", "Black", "Erin.black@comcast.net", 22, {50, 58, 40}, "SECURITY"},
         {"A5", "Ana", "Escobedo", "myemailaddress@gmail.com", 23, {20, 21, 22}, "SOFTWARE"}};
 
-    // populate array w array of student objects [NECESSARY]
+
     for (int i = 0; i <= 5; i++)
     {
         classRosterArray[i] = &students[i];
     }
 
-    // print valUEs w pointers [NECESSARY]
     for (int i = 0; i <= 5; i++)
     {
         cout << classRosterArray[i]->getId() << ", ";
@@ -209,5 +208,4 @@ Roster::Roster()
         cout << classRosterArray[i]->getDegree() << endl;
     }
 }
-
-#endif
+*/
