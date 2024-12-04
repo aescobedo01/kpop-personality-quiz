@@ -24,7 +24,6 @@ const std::string studentData[] = {
 "A5,Ana,Escobedo,myemailaddress@gmail.com,23,20,21,22,SOFTWARE"
 };
 
-/////wrongggggg
 Roster* classRoster = new Roster(5);
 
 for (int i = 0; i < 5; i++) {
