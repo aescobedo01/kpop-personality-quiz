@@ -42,7 +42,7 @@ string getId() const;
 string getFName() const;
 string getLName() const;
 string getEmail() const;
-int getAge()const ;
+int getAge() const;
 int* getDays() const;
 virtual Degree getDegree() const;
 
