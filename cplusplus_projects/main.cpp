@@ -24,6 +24,7 @@ const std::string studentData[] = {
 "A5,Ana,Escobedo,myemailaddress@gmail.com,23,20,21,22,SOFTWARE"
 };
 
+/////wrongggggg
 Roster* classRoster = new Roster(5);
 
 for (int i = 0; i < 5; i++) {
@@ -45,7 +46,7 @@ classRoster->printAll();
 
 cout << "Student with this ID was not found: " << endl;
 classRoster->remove("A3");
-//expected: the above line should print a message saying such a student with this ID was not found.
+//expected: above line should print a message saying student not found.
 
 delete classRoster;
 

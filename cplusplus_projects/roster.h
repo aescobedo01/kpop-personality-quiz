@@ -20,7 +20,7 @@ Roster(int numStudents);
 ~Roster();
 
 string GetId(int index);
-void parse (string studentData);
+void parse (string const studentDataString);
 bool remove(string studentId);
 void add(string studentId, string firstName, string lastName, string emailAddress, int yearsOld, int daysCourse1, int daysCourse2, int daysCourse3, Degree degreeProgram);
 void printAll();

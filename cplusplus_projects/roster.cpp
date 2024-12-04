@@ -4,17 +4,16 @@
 #include "roster.h"
 #include "student.h"
 #include "degree.h"
-#ifndef ROSTER_H
-#define ROSTER_H
+
 
 using namespace std;
 
-//numstudnts
+//numstudnts constructor
 Roster::Roster(int numStudents) {
 this->numStudents = numStudents;
 }
 
-// destroyyyy
+// destructor
 Roster::~Roster() {
     for (int i = 0; i <= lastIndex; ++i) {
         delete classRosterArray[i];
@@ -27,7 +26,7 @@ string Roster::GetId(int index) {
 }
 
 
-void Roster::parse(string studentData) { 
+void Roster::parse(string const studentDataString) { 
     string studentId, firstName, lastName, emailAddress;
     int yearsOld, daysCourse1, daysCourse2, daysCourse3;
 
@@ -35,52 +34,52 @@ void Roster::parse(string studentData) {
         lastIndex++;
 
         //id
-        int rhs = studentData[lastIndex].find(", ");
-        classRosterArray[lastIndex]->setId(studentData[lastIndex].substr(0, rhs));
+        int rhs = studentDataString.find(",");
+        classRosterArray[lastIndex]->setId(studentDataString.substr(0, rhs));
 
         //fname
         int lhs = rhs + 1;
-        rhs = studentData[lastIndex].find(",", lhs);
-        classRosterArray[lastIndex]->setFName(studentData[lastIndex].substr(lhs, rhs - lhs));
+        rhs = studentDataString.find(",", lhs);
+        classRosterArray[lastIndex]->setFName(studentDataString.substr(lhs, rhs - lhs));
 
         //lname
         lhs = rhs + 1;
-        rhs = studentData[lastIndex].find(",", lhs);
-        classRosterArray[lastIndex]->setLName(studentData[lastIndex].substr(lhs, rhs - lhs));
+        rhs = studentDataString.find(",", lhs);
+        classRosterArray[lastIndex]->setLName(studentDataString.substr(lhs, rhs - lhs));
 
         //email
         lhs = rhs + 1;
-        rhs = studentData[lastIndex].find(",", lhs);
-        classRosterArray[lastIndex]->setEmail(studentData[lastIndex].substr(lhs, rhs - lhs));
+        rhs = studentDataString.find(",", lhs);
+        classRosterArray[lastIndex]->setEmail(studentDataString.substr(lhs, rhs - lhs));
 
         //age
         lhs = rhs + 1;
-        rhs = studentData[lastIndex].find(",", lhs);
-        classRosterArray[lastIndex]->setAge(studentData[lastIndex].substr(lhs, rhs - lhs));
+        rhs = studentDataString.find(",", lhs);
+        classRosterArray[lastIndex]->setAge(studentDataString.substr(lhs, rhs - lhs));
 
         //days in each course
         //day 1
         lhs = rhs + 1;
-        rhs = studentData[lastIndex].find(",", lhs);
-        daysCourse1 = stoi(studentData[lastIndex].substr(lhs, rhs - lhs));
+        rhs = studentDataString.find(",", lhs);
+        daysCourse1 = stoi(studentDataString.substr(lhs, rhs - lhs));
 
         //day 2
         lhs = rhs + 1;
-        rhs = studentData[lastIndex].find(",", lhs);
-        daysCourse2 = stoi(studentData[lastIndex].substr(lhs, rhs - lhs));
+        rhs = studentDataString.find(",", lhs);
+        daysCourse2 = stoi(studentDataString.substr(lhs, rhs - lhs));
 
         //day3
         lhs = rhs + 1;
-        rhs = studentData[lastIndex].find(",", lhs);
-        daysCourse3 = stoi(studentData[lastIndex].substr(lhs, rhs - lhs));
+        rhs = studentDataString.find(",", lhs);
+        daysCourse3 = stoi(studentDataString.substr(lhs, rhs - lhs));
 /////////////////////////////////////////////////////////////////////
         int days[] = {daysCourse1, daysCourse2, daysCourse3};
         classRosterArray[lastIndex]->setDays(days);
 ////////////////////////////////////////////////////////////////
         //degree
         lhs = rhs + 1;
-        rhs = studentData.find(",", lhs);
-        string type = studentData.substr(lhs, rhs - lhs);
+        rhs = studentDataString.find(",", lhs);
+        string type = studentDataString.substr(lhs, rhs - lhs);
         if (type == "Software") {
             classRosterArray[lastIndex]->setDegree(Software);
         }
@@ -160,14 +159,12 @@ void Roster::printInvalidEmails() {
 void Roster::printByDegreeProgram(Degree degreeProgram) {
     cout << "Degree programs: " << (degreeProgram == Security ? "Security" : (degreeProgram == Network ? "Network" : "Software")) << " program:" << endl;
     for (int i = 0; i <= lastIndex; ++i) {
-        if (ClassRosterArray[i]->getDegree() == degreeProgram) {
+        if (classRosterArray[i]->getDegree() == degreeProgram) {
             classRosterArray[i]->print();
     }
 }
 }
 
-
-#endif
 
 
 
